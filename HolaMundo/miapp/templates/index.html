@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+    <!-- {{ block.super }} para llamar a la plantilla padre -->
+
+    {% comment "" %}
+    Esto es un comentario de templates..
+    {% endcomment %}
+
+{% block content %}
+
+    <h1>{{title}}</h1>
+    <p>Creado por Antonio Ibarra!!!</p>
+    <br />
+
+    <p>{{mi_variable}}</p>
+
+    {% if nombre and nombre == 'Anton Ibarra' %}
+        <p>{{nombre}}</p>
+    {% else %}
+        <strong>El nombre no existe o no coincide!!!!</strong>
+    {% endif %}
+
+    <br />
+    <br />
+    <h3>Listado de lenguajes de programacion</h3>
+    <ul>
+
+    {%comment%}
+        {{forloop.first}} -- Muestra en True el primer elemento de la lista
+        {{forlooop.last}} -- Muestra en True el ultimo elemento de la lista
+        {{forloop.counter}} -- Muestra el elemento con su respectivo numero 
+        {{forloop.counter0}} -- Muestra el elemento con su respectivo numero empezando en 0
+        {{forlooop.revcounter}} -- Contador reverso
+        {{forlooop.revcounter0}} -- Contador reverso empezando con 0
+    {%endcomment%}
+
+    {% for lenguaje in lenguajes %}
+        <li>{{forloop.counter}}. {{lenguaje}}</li>
+    {% empty %}
+        <strong>NO HAY LENGUAJES QUE MOSTRAR!!!!</strong>
+    {% endfor %}
+    </ul>
+
+    {% include 'fecha.html' with saludo='Hola mundo desde include' %}
+{% endblock %}

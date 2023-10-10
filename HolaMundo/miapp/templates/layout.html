@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        <!-- Titulo de cada pagina -->
+        {% endblock %}
+        | Anton Ibarra
+    </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+</head>
+
+<body>
+    <!--Cabecera de la pagina-->
+    <header>
+        <div id="logotipo">
+            <!--Logo-->
+            <img src="{% static 'imagen/logo.png' %}" />
+            <h1>Mi sitio WEB con Django | Anton Ibarra</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li> <a href="{% url 'index' %}">Inicio</a> </li>
+            <li> <a href="{% url 'articulos' %}">Articulos</a> </li>
+            <li> <a href="{% url 'create' %}">Crear Articulo</a> </li>
+            <li> <a href="{% url 'create_full' %}">Crear Articulo Full</a> </li>
+            <li> <a href="{% url 'hola_mundo' %}">Hola Mundo</a> </li>
+            <li> <a href="{% url 'pagina' %}">Pagina de pruebas</a> </li>
+            <li> <a href="{% url 'contacto' 'Anton' 'Ibarra' %}">Contacto</a> </li>
+        </ul>
+    </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    
+    <div id="content">
+
+        <div class="box">
+            <h2 class="title">Titulo Prueba</h2>
+            {% block content %}
+            <!-- Codigo que viene de templates-->
+            {% endblock %}
+        </div>
+        
+    </div>
+
+    <footer>
+        Master en Pyhton &copy; | Anton Ibarra - {% now "d/m/Y" %}
+    </footer>
+
+</body>
+
+</html>

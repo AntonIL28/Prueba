@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% load filters %}
+
+{% block title %}
+    Hola Mundo
+{% endblock %}
+
+{% block content %}
+
+<h1>Hola Mundo con Django!!!</h1>
+<h3>Soy Anton Ibarra de Ing. Mecatronica</h3>
+<br />
+
+{{"Anton Ibarra"|saludo|safe}}
+
+{% endblock %}

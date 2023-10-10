@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Pagina Pruebas
+{% endblock %}
+
+{% block content %}
+
+<h1>Pagina de mi Web</h1>
+<p>{{"Esta es la pagina de pruebas de mi sitio WEB con Django ñ"|cut:"ñ" }}</p>
+
+<p>{{ texto|default:"No hay nada" }}</p>
+
+<h4>{{lista|first}}, Primer elemento de la lista</h4>
+<br />
+<h4>{{lista|join:','}}, Lista Orgenada</h4>
+<br />
+<h4>{{lista|length}}, Cantidad de elementos </h4>
+<br />
+<br />
+<h4>{{"Texto de pruebas"|length}}, Cantidad de caracteres de la frase: "Texto de pruebas" </h4>
+<br />
+<h4>{{"Texto de pruebas"|upper}}</h4>
+<br />
+<h4>{{"<p>texto</p> <strong>pruebas</strong> hola mundo"|striptags}}</h4>
+<br />
+<h4>{{"<p>texto</p> <strong>pruebas</strong> hola mundo"|striptags|wordcount}}</h4>
+
+{% endblock %}
+
+
+{% comment %}
+Los filtros son acciones que podemos realizar para facilitar algunas tareas
+existen muchos filtros en la documentacion y podemos crearlos
+NOTA: SE PUEDEN COMBINAR LOS FILTROS
+Ejemplos:
+- |cut:'' - Elimina
+- |first - para lista
+- |last 
+- |divisibleby:'' - para funciones (dividir entre cualquier numero
+- |upper -mayusculas
+- |lower -minusculas
+- |random - elemento aleatorio
+- |striptags - code limpio
+- |wordcount - numero de palabras
+{% endcomment %} 
